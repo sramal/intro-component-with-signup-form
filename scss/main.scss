@@ -1,0 +1,209 @@
+@import './fonts';
+@import './variables';
+@import './resets';
+
+
+@function weight($weight-name) {
+    @return map-get($font-weights, $weight-name);
+}
+
+
+body {
+    width: 100%;
+    min-height: 100vh;
+    padding: 5%;
+
+    font-family: $font-family;
+    font-size: $font-size;
+ 
+    display: flex;
+    align-items: center;
+
+    background-color: $red;
+    background-image: url(../../images/bg-intro-desktop.png);
+    background-repeat: no-repeat;
+    background-position: 100% 100%;
+    background-size: cover;
+}
+
+/*
+    Content
+*/
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container > * {
+    flex: 1 1 50%;
+}
+
+/*
+    Left content containing text
+*/
+.text {
+    color: white;
+    width: 70%;
+}
+
+.text > * {
+    padding: 20px 40px;
+}
+
+.text h1 {
+    font-size: 2rem;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.text p {
+    font-size: 12px;
+    line-height: 1.7;
+}
+
+
+/*
+    Right content containing the form
+*/
+.free-trial {
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+}
+
+.free-trial .price {
+    background: $blue;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    text-align: center;
+    color: white;
+}
+
+.free-trial .duration {
+    font-weight: map-get($font-weights, bold);
+    font-size: small;
+    opacity: .8;
+}
+
+.free-trial .rate {
+    font-weight: map-get($font-weights, regular);
+    font-size: 10px;
+    opacity: .7;
+}
+
+/*
+    items in the form section
+*/
+.free-trial > * {
+    flex: 1 1 100%;
+}
+
+.form-items {
+    display: flex;
+    flex-direction: column;
+    background: white;
+    border-radius: 8px;
+    padding: 20px;
+    padding-bottom: 0;
+}
+
+.form-items .item {
+    flex: 1 1 100%;
+    padding: 15px;
+    padding-left: 30px;
+    margin-bottom: 10px;
+    border-radius: 3px;
+    border: 1px solid rgb(228, 225, 225);
+    font-size: 10px;
+    font-weight: map-get($font-weights, bold);
+}
+
+.form-items .disclaimer {
+    margin-bottom: 0;
+    border: none;
+}
+
+.form-items > input:hover {
+    outline: none;
+    border: 1px solid $blue;
+}
+
+.form-items > input:focus {
+    outline: none;
+    border: 1px solid $blue;
+}
+
+
+.form-items img {
+    display: none;
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+    position: relative;
+    left: 90%;
+    bottom: 50px;
+}
+
+.error-item {
+    display: none;
+    font-size: 8px;
+    font-weight: map-get($font-weights, bold);
+    font-style: italic;
+    text-align: right;
+    color: $red;
+}
+
+.form-items button {
+    background: $green;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.disclaimer {
+    text-align: center;
+    border: none;
+    padding-top: 0;
+}
+
+.disclaimer .agree {
+    font-size: 8px;
+    color: $grayish-blue;
+}
+
+.disclaimer .terms-services {
+    color: $red;
+}
+
+/*
+    Media queries
+*/
+@media (min-width: 1200px) {
+    body {
+        width:1200px;
+        margin: auto;
+    }
+}
+
+@media (max-width: 650px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .container > * {
+        flex: 1 1 100%;
+    }
+
+    .text > * {
+        text-align: center;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .form-items img {
+        left: 85%;
+    }
+}
