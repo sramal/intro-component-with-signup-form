@@ -108,18 +108,20 @@ function clickHandler() {
     when this is called, this clear hides the error messages
     and the error icon for all the fields
 */ 
-function clearErrorMessage() {
-    displayOff(document.querySelector('p.error-fname'), document.querySelector('.img-error-fname'));
+function clearErrorMessage(id) {
+    if (id === 'fname')
+        displayOff(document.querySelector('p.error-fname'), document.querySelector('.img-error-fname'));
 
+    else if (id === 'lname')
+        displayOff(document.querySelector('p.error-lname'), document.querySelector('.img-error-lname'));
 
-    displayOff(document.querySelector('p.error-lname'), document.querySelector('.img-error-lname'));
+    else if (id === 'email') {
+        displayOff(document.querySelector('p.error-email'), document.querySelector('.img-error-email'));
+        /* Also set the default error message for email back */
+        document.querySelector('p.error-email').innerText = "Email cannot be empty";
+    }
 
-
-    displayOff(document.querySelector('p.error-email'), document.querySelector('.img-error-email'));
-    /* Also set the default error message for email back */
-    document.querySelector('p.error-email').innerText = "Email cannot be empty";
-
-
-    displayOff(document.querySelector('p.error-password'), document.querySelector('.img-error-password'));
+    else if (id === 'password')
+        displayOff(document.querySelector('p.error-password'), document.querySelector('.img-error-password'));
 }
 
